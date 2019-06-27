@@ -2,8 +2,11 @@ runtime: nodejs10
 handlers:
 - url: /api/.*
   script: auto
+  secure: always
 - url: /
   static_files: build/index.html
   upload: build/index.html
+  secure: always
 - url: /
   static_dir: build
+  secure: always
