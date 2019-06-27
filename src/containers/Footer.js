@@ -24,7 +24,7 @@ export default class Footer extends React.Component {
                         </a>
 
                         <span className="pt-navbar-divider hide-if-small-750" />
-                        {v. 1.0}                 
+                        v. 1.0               
                     </div>
                 </nav>
             </div>
