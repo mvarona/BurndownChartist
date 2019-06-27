@@ -137,3 +137,11 @@ Inspired and based on the amazing [kanban.ist](https://kanban.ist) by [Misha Wak
 BurndownChartist is not created by, affiliated with, or supported by [Doist](https://www.doist.com), the team behind the best productivity app, [Todoist](https://www.todoist.com).
 
 </section>
+
+# Development
+
+***
+
+BurndownChartist is a static (serverless) website built using create-react-app and dependencies are managed using yar.
+
+To get started, clone this repository on your machine and then run _yarn install_ (to install dependencies) and _yarn start_ to start the development server.
