@@ -27,9 +27,9 @@ class Header extends React.Component {
         );
 
         const loginButton = (
-            <Link role="button" to="/chart" className="light-text pt-button pt-intent-primary">
+            <a role="button" href="https://burndownchart.ist/chart" className="light-text pt-button pt-intent-primary">
                 Login
-            </Link>
+            </a>
         );
 
         const atChart = this.props.history.location.pathname === '/chart';
@@ -42,11 +42,11 @@ class Header extends React.Component {
             <nav className="Header pt-navbar pt-fixed-top">
                 <div className="pt-navbar-group pt-align-left">
                     <div className="pt-navbar-heading font-roboto">
-                        <Link role="button" to="/">BurndownChartist</Link>
+                        <a role="button" href="https://burndownchart.ist/">BurndownChartist</a>
                     </div>
                     <span className="pt-navbar-divider" />
                     {/* Board button does nothing if at /board (prevents potential query string being cleared) */}
-                    {atChart ? chartButton : <Link role="button" to={'/chart'}>{chartButton}</Link>}
+                    {loggedIn ? <a role="button" href='https://burndownchart.ist/chart'>{chartButton}</a> : null}
                 </div>
                 <div className="pt-navbar-group pt-align-right hide-if-small-500">
                     {loggedIn ? welcomeSentence : null}
@@ -70,6 +70,7 @@ const mapDispatchToProps = dispatch => {
             dispatch(listsActions.clearAll());
             dispatch(uiActions.restoreInitialState());
             dispatch(userActions.logout());
+            window.location.href = "https://burndownchart.ist";
         },
 
         fetchLists: token => {

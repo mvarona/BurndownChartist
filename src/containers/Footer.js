@@ -13,9 +13,9 @@ export default class Footer extends React.Component {
                         </a>
                     </div>
                     <div className="pt-navbar-group pt-align-right">
-                        <Link role="button" to="/issues" className="hide-if-small-750">
+                        <a role="button" href="https://burndownchart.ist/issues" className="hide-if-small-750">
                             <button className="pt-button pt-minimal pt-icon-application">Known Issues</button>
-                        </Link>
+                        </a>
 
                         <a href="https://github.com/mvarona/BurndownChartist/issues" target="_blank" rel="noopener noreferrer">
                             <button className="pt-button pt-minimal pt-icon-error hide-if-small-750">

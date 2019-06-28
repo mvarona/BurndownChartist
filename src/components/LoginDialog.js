@@ -32,9 +32,7 @@ class LoginDialog extends React.Component {
                             });
                         } else {
                             this.setState({ loading: false }, () => this.props.login(res.user));
-                            if (window.location.href.indexOf("login") === -1 || window.location.href.indexOf("chart") === -1){
-                                window.location.href = "chart";
-                            } 
+                            window.location.href = "https://burndownchart.ist/chart"; 
                         }
                     })
                     .catch(err => {
@@ -88,9 +86,9 @@ class LoginDialog extends React.Component {
                 </div>
                 <div className="pt-dialog-footer">
                     <div className="pt-dialog-footer-actions">
-                        <Link onClick={this.forceUpdate} to="/">
+                        <a onClick={this.forceUpdate} href="https://burndownchart.ist/">
                             <Button role="button" text="Cancel" intent={Intent.DANGER} />
-                        </Link>
+                        </a>
                         <Button
                             role="button"
                             intent={Intent.PRIMARY}

@@ -39,7 +39,7 @@ export default class Home extends Component {
                         <em>Professional personal productivity</em>
                     </h3>
                     <div className='loginContainer main'>
-                        <Link role="button" to="/chart" className="light-text pt-button pt-intent-primary">Login</Link>
+                        <a role="button" href="https://burndownchart.ist/chart" className="light-text pt-button pt-intent-primary">Login</a>
                         <br/>
                         <span role="button" onClick={() => this.setState({isLoginDialogVisible: true })}>Problem logging or different user?</span>
                     </div>

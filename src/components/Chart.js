@@ -282,7 +282,7 @@ var taskProccessing = function(){
                     }
                 }
 
-                // Cálculo tiempos restantes nuevo
+                // Real remaining time calc:
 
                 for (var i = 0; i < sprintDays.length; i++){
                     for (var j = 0; j < filteredFetchedTasks.length; j++){
@@ -318,8 +318,6 @@ var taskProccessing = function(){
                     }
                 }
 
-
-                // Fin cálculo tiempos restantes nuevo
 
                 if (filteredFetchedTasks.length == 0 && estimatePreference == ESTIMATE_PREFERENCE_NAME){
                     Swal.fire('No tasks found', 'Please make sure all tasks within the sprint have a time estimate on its name (taskName $number) and try again later or contact me at m.varona@bmsalamanca.com if the error persists.', 'error');
@@ -493,7 +491,7 @@ class Chart extends Component {
     componentWillMount() {
         this.setState({ loading: true });
         if (!this.props.user.token){
-            window.location.href = "/#login";
+            window.location.href = "https://burndownchart.ist/#login";
         }
         Todoist.getUser(this.props.user.token)
         .then(response => {
@@ -700,7 +698,7 @@ class Chart extends Component {
                                     <div className='donate'>
                                         <div>
                                             <span>Are we being useful? Please consider to donate to support this project</span>
-                                            <Link role="button" to="/donate" className="light-text pt-button pt-intent-primary">Donate</Link>
+                                            <a role="button" href="https://burndownchart.ist/donate" className="light-text pt-button pt-intent-primary">Donate</a>
                                         </div>
                                     </div>
                                     </fieldset>
