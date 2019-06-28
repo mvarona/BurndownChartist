@@ -1,4 +1,4 @@
-<img src="http://www.burndownchartist.appspot.com/static/media/logo.515c1af3.png" alt="BurndownChartist logo" width="100"/>
+<img src="https://www.bmsalamanca.com/others/BurndownChartist/logo.png" alt="BurndownChartist logo" width="100"/>
 
 # BurndownChartist
 
@@ -31,13 +31,13 @@
 
 <td role="gridcell"><span class="story">Estimate the duration for each task using a label</span>
 
-![Todoist task name: Refactor component. Todoist task label: @3](http://www.burndownchartist.appspot.com/static/media/img7.7bc68149.gif)
+![Todoist task name: Refactor component. Todoist task label: @3](https://www.bmsalamanca.com/others/BurndownChartist/infinite/img7.gif)
 
 </td>
 
 <td role="gridcell"><span class="story">Estimate the duration for each task with _$time_ on its name</span>
 
-![Todoist task name: Refactor component. Todoist task label: $3](http://www.burndownchartist.appspot.com/static/media/img1.0c36519c.gif)
+![Todoist task name: Refactor component. Todoist task label: $3](https://www.bmsalamanca.com/others/BurndownChartist/infinite/img1.gif)
 
 </td>
 
@@ -65,11 +65,11 @@
 
 <td role="gridcell"><span class="story">Complete a task as usual, and if its duration has differed from estimate, add _^realTime_ on its name</span>
 
-![Complete a task as usual on Todoist, and its completion date will be right on the chart](http://www.burndownchartist.appspot.com/static/media/img4.e4fda2d0.gif)
+![Complete a task as usual on Todoist, and its completion date will be right on the chart](https://www.bmsalamanca.com/others/BurndownChartist/infinite/img4.gif)
 
 ##### Love when everything turns out as planned...
 
-![Todoist task name: Refactor component ^5\. Task completed but after 5 hours instead](http://www.burndownchartist.appspot.com/static/media/img5.a2f43f78.gif)
+![Todoist task name: Refactor component ^5\. Task completed but after 5 hours instead](https://www.bmsalamanca.com/others/BurndownChartist/infinite/img5.gif)
 
 ##### But life is hard, so this task was completed after 5 hours...
 
@@ -81,7 +81,7 @@
 
 <td role="gridcell"><span class="story">Did you complete a task other day and forgot to mark it? Just add _%%completionDate%%_ to its name and mark it whenever you want</span>
 
-![Todoist task name: Refactor component %%2019-06-12%% ^5](http://www.burndownchartist.appspot.com/static/media/img6.f55bdffc.gif)
+![Todoist task name: Refactor component %%2019-06-12%% ^5](https://www.bmsalamanca.com/others/BurndownChartist/infinite/img6.gif)
 
 ##### Almost forgot what Tim did yesterday!
 
@@ -93,7 +93,7 @@
 
 <td role="gridcell"><span class="story">Track progress for not completed tasks by adding to its name _^[date: number, ...]_</span>
 
-![Todoist task name: Refactor component ^[2019-06-20: 1, 2019-06-21: 1]](http://www.burndownchartist.appspot.com/static/media/img3.4e423599.gif)
+![Todoist task name: Refactor component ^[2019-06-20: 1, 2019-06-21: 1]](https://www.bmsalamanca.com/others/BurndownChartist/infinite/img3.gif)
 
 ##### Hopefully, we started three days ago and now it's done!
 
