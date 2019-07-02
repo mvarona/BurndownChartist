@@ -1,6 +1,6 @@
 <img src="https://www.bmsalamanca.com/others/BurndownChartist/img/logo.png" alt="BurndownChartist logo" width="100"/>
 
-# BurndownChartist
+# <a target="_blank" href="https://www.burndownchart.ist">BurndownChart.ist</a>
 
 * * *
 
