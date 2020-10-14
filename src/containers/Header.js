@@ -27,7 +27,7 @@ class Header extends React.Component {
         );
 
         const loginButton = (
-            <a role="button" href="https://burndownchart.ist/chart" className="light-text pt-button pt-intent-primary">
+            <a role="button" href="https://burndownchartist.appspot.com/chart" className="light-text pt-button pt-intent-primary">
                 Login
             </a>
         );
@@ -42,11 +42,11 @@ class Header extends React.Component {
             <nav className="Header pt-navbar pt-fixed-top">
                 <div className="pt-navbar-group pt-align-left">
                     <div className="pt-navbar-heading font-roboto">
-                        <a role="button" href="https://burndownchart.ist/">BurndownChartist</a>
+                        <a role="button" href="https://burndownchartist.appspot.com/">BurndownChartist</a>
                     </div>
                     <span className="pt-navbar-divider" />
                     {/* Board button does nothing if at /board (prevents potential query string being cleared) */}
-                    {loggedIn ? <a role="button" href='https://burndownchart.ist/chart'>{chartButton}</a> : null}
+                    {loggedIn ? <a role="button" href='https://burndownchartist.appspot.com/chart'>{chartButton}</a> : null}
                 </div>
                 <div className="pt-navbar-group pt-align-right hide-if-small-500">
                     {loggedIn ? welcomeSentence : null}
@@ -70,7 +70,7 @@ const mapDispatchToProps = dispatch => {
             dispatch(listsActions.clearAll());
             dispatch(uiActions.restoreInitialState());
             dispatch(userActions.logout());
-            window.location.href = "https://burndownchart.ist";
+            window.location.href = "https://burndownchartist.appspot.com";
         },
 
         fetchLists: token => {

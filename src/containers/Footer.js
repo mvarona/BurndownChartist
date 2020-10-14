@@ -13,7 +13,7 @@ export default class Footer extends React.Component {
                         </a>
                     </div>
                     <div className="pt-navbar-group pt-align-right">
-                        <a role="button" href="https://burndownchart.ist/issues" className="hide-if-small-750">
+                        <a role="button" href="https://burndownchartist.appspot.com/issues" className="hide-if-small-750">
                             <button className="pt-button pt-minimal pt-icon-application">Known Issues</button>
                         </a>
 

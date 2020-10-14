@@ -32,7 +32,7 @@ class LoginDialog extends React.Component {
                             });
                         } else {
                             this.setState({ loading: false }, () => this.props.login(res.user));
-                            window.location.href = "https://burndownchart.ist/chart"; 
+                            window.location.href = "https://burndownchartist.appspot.com/chart"; 
                         }
                     })
                     .catch(err => {
@@ -86,7 +86,7 @@ class LoginDialog extends React.Component {
                 </div>
                 <div className="pt-dialog-footer">
                     <div className="pt-dialog-footer-actions">
-                        <a onClick={this.forceUpdate} href="https://burndownchart.ist/">
+                        <a onClick={this.forceUpdate} href="https://burndownchartist.appspot.com/">
                             <Button role="button" text="Cancel" intent={Intent.DANGER} />
                         </a>
                         <Button

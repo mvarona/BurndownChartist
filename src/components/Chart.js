@@ -491,7 +491,7 @@ class Chart extends Component {
     componentWillMount() {
         this.setState({ loading: true });
         if (!this.props.user.token){
-            window.location.href = "https://burndownchart.ist/#login";
+            window.location.href = "https://burndownchartist.appspot.com/#login";
         }
         Todoist.getUser(this.props.user.token)
         .then(response => {
@@ -698,7 +698,7 @@ class Chart extends Component {
                                     <div className='donate'>
                                         <div>
                                             <span>Are we being useful? Please consider to donate to support this project</span>
-                                            <a role="button" href="https://burndownchart.ist/donate" className="light-text pt-button pt-intent-primary">Donate</a>
+                                            <a role="button" href="https://burndownchartist.appspot.com/donate" className="light-text pt-button pt-intent-primary">Donate</a>
                                         </div>
                                     </div>
                                     </fieldset>
