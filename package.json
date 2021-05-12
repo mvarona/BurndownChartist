@@ -11,7 +11,7 @@
     "@blueprintjs/datetime": "^1.12.0",
     "@blueprintjs/labs": "^0.5.0",
     "babel-polyfill": "^6.22.0",
-    "chart.js": "^2.8.0",
+    "chart.js": "^2.9.4",
     "cookies-eu-banner": "^2.0.0",
     "immutable": "^3.8.1",
     "isomorphic-fetch": "^2.2.1",
