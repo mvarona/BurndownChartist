@@ -20,6 +20,7 @@ var taskProccessing = function(){
 
     var filteredFetchedTasks = [];
     var fetchedTasks = [];
+    var fetchedChildrenProjectsIDs = [];
     var fetchedLabels = [];
     var remainingTime = [];
     var realRemainingTime = [];
@@ -59,7 +60,7 @@ var taskProccessing = function(){
       return d instanceof Date && !isNaN(d);
     }
 
-    function fetchTasks(project, sprintBegin, sprintEnd, token, premium, estimatePreference) {
+    function fetchTasks(project, sprintBegin, sprintEnd, token, premium, estimatePreference, combineSubprojectsTasks) {
         if (estimatePreference == ESTIMATE_PREFERENCE_LABEL && premium == true){
             Todoist.fetchLabels(token)
                 .then(response => {
@@ -69,6 +70,20 @@ var taskProccessing = function(){
                 .catch(err => {
                     Raven.captureException(err);
                     Swal.fire('This is embarrasing...', 'A wild problem happened trying to fetch your Todoist labels searching the estimate durations, please try again later or contact me at m.varona@bmsalamanca.com if the error persists. Error message:' + err, 'error');
+                });
+        }
+
+        if (combineSubprojectsTasks == true){
+            Todoist.fetchProjects(token)
+                .then(response => {
+                    fetchedChildrenProjectsIDs = [];
+                    fetchedChildrenProjectsIDs = response['projects'].filter(function (fetchedProject) {
+                        return fetchedProject.parent_id == project;
+                    }).map(childProject => childProject.id);
+                })
+                .catch(err => {
+                    Raven.captureException(err);
+                    Swal.fire('This is embarrasing...', 'A wild problem happened trying to fetch your Todoist projects searching the subprojects for the one you specified, please try again later or contact me at m.varona@bmsalamanca.com if the error persists. Error message:' + err, 'error');
                 });
         }
 
@@ -99,7 +114,7 @@ var taskProccessing = function(){
                 // Create filteredFetchedTasks, an array compound of every task which belongs to selected project and which due date is within the sprint:
 
                 for (var i = 0; i < fetchedTasks.length; i++) {
-                    if (fetchedTasks[i].project_id == project){
+                    if (fetchedTasks[i].project_id == project || fetchedChildrenProjectsIDs.includes(fetchedTasks[i].project_id)){
 
                         var dueDate = fetchedTasks[i].due;
 
@@ -483,7 +498,7 @@ var taskProccessing = function(){
 // Function declared in global scope to avoid Cross-Origin Resource Sharing Policy problems:
 
 function getFilteredTasks(){
-  return Promise.all([taskProccessing.fetchTasks(taskProccessing.selectedProject, taskProccessing.sprintBegin, taskProccessing.sprintEnd, taskProccessing.token, taskProccessing.premium, taskProccessing.estimatePreference)]);
+  return Promise.all([taskProccessing.fetchTasks(taskProccessing.selectedProject, taskProccessing.sprintBegin, taskProccessing.sprintEnd, taskProccessing.token, taskProccessing.premium, taskProccessing.estimatePreference, taskProccessing.combineSubprojectsTasks)]);
 }
 
 
@@ -590,7 +605,7 @@ class Chart extends Component {
                     taskProccessing.sprintBegin = moment(taskProccessing.sprintBegin, "YYYY-MM-DD");
                     taskProccessing.sprintEnd = moment(taskProccessing.sprintEnd, "YYYY-MM-DD");
 
-                    if (taskProccessing.selectedProject == "" || taskProccessing.sprintBegin == "" || taskProccessing.sprintEnd == "" || document.querySelectorAll('input[type="radio"]:checked').length < 2){
+                    if (taskProccessing.selectedProject == "" || taskProccessing.sprintBegin == "" || taskProccessing.sprintEnd == "" || document.querySelectorAll('input[type="radio"]:checked').length < 3){
                         Swal.fire('There are empty fields', 'Please fill all of them to load your tasks.', 'error');
                     } else if (taskProccessing.sprintEnd <= taskProccessing.sprintBegin) {
                         Swal.fire('Incorrect dates', 'The sprint end cannot be before or equal than the sprint begin.', 'error');
@@ -600,6 +615,7 @@ class Chart extends Component {
                         taskProccessing.token = this.props.user.token;
                         taskProccessing.premium = this.state.premium;
                         taskProccessing.estimatePreference = document.getElementById('estimateTimeSyntaxLabel').checked ? ESTIMATE_PREFERENCE_LABEL : ESTIMATE_PREFERENCE_NAME;
+                        taskProccessing.combineSubprojectsTasks = document.getElementById('combineSubprojectsTasks1').checked ? true : false;
                        
                        document.getElementById("chartLoading").style.display = "inline";
                     
@@ -664,6 +680,10 @@ class Chart extends Component {
                                     <select required aria-required='true' aria-label="Select a project" name='projectSelector'>
                                         {selectProjects}
                                     </select>
+                                    <br/><br/>
+                                    <span>Combine subprojects&apos; tasks with the parent project&apos;s tasks?:</span>&nbsp;&nbsp;
+                                    <input required type='radio' value='h' name='combineSubprojectsTasks' id='combineSubprojectsTasks1' aria-label="Combine subprojects tasks: Yes" /><label htmlFor='combineSubprojectsTasks1'> Yes</label>&nbsp;&nbsp;&nbsp;
+                                    <input required type='radio' value='s' name='combineSubprojectsTasks' id='combineSubprojectsTasks2' aria-label="Combine subprojects tasks: No" /><label htmlFor='combineSubprojectsTasks2'> No</label>&nbsp;&nbsp;&nbsp;
                                     <br/><br/>
                                     <span>Sprint begin: </span>
                                     <SprintDayPicker name='sprintBeginPicker' role='textbox' aria-label="Select a sprint begin date" />&nbsp;&nbsp;
