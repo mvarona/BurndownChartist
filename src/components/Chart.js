@@ -506,7 +506,7 @@ class Chart extends Component {
     componentWillMount() {
         this.setState({ loading: true });
         if (!this.props.user.token){
-            window.location.href = "http://localhost:3000/#login";
+            window.location.href = "https://burndownchartist.appspot.com/#login";
         }
         Todoist.getUser(this.props.user.token)
         .then(response => {
